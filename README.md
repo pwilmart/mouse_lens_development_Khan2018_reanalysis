@@ -259,7 +259,7 @@ The [Trimmed Mean of M-values (TMM)](https://link.springer.com/content/pdf/10.11
 
  We can explore the characteristics of the DE candidates that we get when using intensity grand total matching between samples. The box plots are colored to show the 6 early ages (in blue) that are compared to the later ages (in green).
 
- The MA plot on the right shows log2 fold changes (y-axis) as a function of average total protein intensity (the x-axis). Proteins that increased in abundance with age are highlighted in red. Proteins that decreased in abundance with age are highlighted in blue. The black dots are the proteins that were not significantly different. The solid black horizontal lines are the 2-fold levels.
+ The MA plot on the right shows log2 fold changes (y-axis) as a function of average total protein intensity (x-axis). Proteins that increased in abundance with age (152) are highlighted in red. Proteins that decreased in abundance with age (3,414) are highlighted in blue. The 684 black dots are the proteins that were not significantly different. The solid black horizontal lines are the 2-fold levels.
 
  The red points are biased towards high abundance and the blue points cover a wide range of abundances except for the highest abundances. We have many candidates in both direction that have more than 2-fold changes. There are also many significant proteins that have rather small fold-changes. I am not sure what to do with 3,400 blue candidates, but the 152 up candidates might be a pretty good way to identify the mature fiber cell lens proteins.
 
@@ -269,7 +269,7 @@ The [Trimmed Mean of M-values (TMM)](https://link.springer.com/content/pdf/10.11
 
 ![Slide 23](images/Slide23.png)
 
- These are the same plots for the data after TMM normalization. Not surprisingly, we have balanced numbers of up and down DE candidates. There are also many more non-significant proteins. The numbers of candidates above or below the 2-fold lines are smaller (in total - more red points but far fewer blue points). There are still large numbers of statistically significant proteins with less than 2-fold changes. It is unlikely that mature fiber cells have over a thousand proteins, so a fold-change cutoff in addition to a statistical significance cutoff would probably be needed.
+ These are the same plots for the data after TMM normalization. Not surprisingly, we have balanced numbers of Up and Down DE candidates. There are also many more non-significant proteins (2,001). The numbers of candidates above or below the 2-fold lines are smaller (in total - more red points but far fewer blue points). There are still large numbers of statistically significant proteins with less than 2-fold changes. It is unlikely that mature fiber cells have over a thousand proteins, so a fold-change cutoff in addition to a statistical significance cutoff would probably be needed.
 
  ---
 
@@ -277,7 +277,7 @@ The [Trimmed Mean of M-values (TMM)](https://link.springer.com/content/pdf/10.11
 
 ![Slide 24](images/Slide24.png)
 
- Other data visualizations can be used to contrast the two normalization methods, such as distributions of log2 fold change color coded and faceted by statistical significance cuts (purple > 0.10 > teal > 0.05 > olive > 0.01 > orange). It is clear that TMM better centers the data for the bulk of the proteins.
+ Other data visualizations can be used to contrast the two normalization methods, such as distributions of log2 fold change color coded and faceted (separated plots) by statistical significance cuts (purple > 0.10 > teal > 0.05 > olive > 0.01 > orange). It is clear that TMM better centers the data for the bulk of the proteins in the plots on the right.
 
  ---
 
@@ -289,9 +289,9 @@ The [Trimmed Mean of M-values (TMM)](https://link.springer.com/content/pdf/10.11
 
 We have a catch-22. Did the highly abundant proteins stay the same in abundance and the majority of the proteins go down in abundance? Or did the majority of the proteins stay the same abundance and the highly abundant proteins increased in abundance? Which normalization method and statistical testing results are the "correct" ones?
 
-I am not sure there is a simple answer here. Either normalization seems justifiable and the statistical testing results are consistent with how the normalization adjusted the data. The choice probably depends on what proteins are of most interest. The lens is dominated by over-expression of crystallins. If the behavior of the crystallins are of interest, maybe grand total intensity matching makes it easier to interpret the results.
+I am not sure there is a simple answer here. Either normalization seems justifiable and the statistical testing results are consistent with how the normalization choice adjusted the data. The choice probably depends on what proteins are of most interest. The lens is dominated by over-expression of crystallins. If the behavior of the crystallins are of interest, maybe grand total intensity matching makes it easier to interpret the results.
 
-Maybe lower abundance proteins play important roles in developmental processes in the cortex and would be associated with the bulk of the proteins. TMM normalization seems more sensible for the majority of the proteins (more unchanged proteins, more balance between up and down expression changes, etc.). More important than which normalization is "best" (if that is even a valid question), is understanding how normalization and statistical testing are coupled so that erroneous interpretation of results can be avoided.
+Perhaps lower abundance proteins play important roles in developmental processes in the cortex and would be associated with the bulk of the proteins. TMM normalization seems more sensible for the majority of the proteins (more unchanged proteins, more balance between up and down expression changes, etc.). More important than trying to determine which normalization is "best" (if that is even a valid question), is understanding how normalization and statistical testing are coupled so that erroneous interpretation of results can be avoided.
 
 ---
 
@@ -299,11 +299,11 @@ Maybe lower abundance proteins play important roles in developmental processes i
 
 ![Slide 26](images/Slide26.png)
 
-Now that we have addressed some of the messy data details that influence the results we will get, we can start thinking about how to interpret the results. There are 6 ages, so time course patterns of protein expression will be of interest. Visualizing time course data is very challenging. With 6 time points, there are many possible patterns (steady up, steady down, flat, flat then up, flat then down, down the flat, up then flat, rise and fall, fall and rise, etc.). These time patterns will depend on the normalization choice similar to how statistical modeling was affected. Small relative differences between ages and/or noisy data can make patterns hard to see. Clustering proteins by similar patterns sounds possible, but that is a difficult problem to code.
+Now that we have addressed some of the messy data details that influence the results we will get, we can start thinking about how to interpret the results. There are 6 ages, so time course patterns of protein expression will be of interest. Visualizing time course data is very challenging. With 6 time points, there are many possible patterns (steady up, steady down, flat, flat then up, flat then down, down then flat, up then flat, rise and fall, fall and rise, etc.). These time patterns will depend on normalization choices similar to how statistical modeling was affected. Small relative differences between ages and/or noisy data can make patterns hard to see. Clustering proteins by similar patterns sounds interesting, but that is a difficult problem to code.
 
 Are there ways to simplify categorizing protein abundance changes given what we know about mouse lens development? One-way ANOVA tests if protein abundances across the ages are unlikely to have been the same (remember hypothesis testing is like asking backwards questions). Proteins with very small p-values mean one or more of the ages had very different abundances than the rest of the ages. Proteins that do not have very small p-values are likely similar abundances across the ages. As we have already seen, normalization choice has a big effect on numbers of statistically significant proteins. Since ANOVA does not tell us which age was different nor how it was different (up or down), we need additional information to sort out things.
 
-We know that the lens will grow over these ages and that older ages will have much more crystallin and other lens proteins. We know how over-expression of a small number of highly abundant proteins alters the proteomes. We assume/know that there will be large differences between the youngest ages and the oldest ages. We could compare E15 to P9, for example. With 3 replicates, we might get fewer false positive candidates of we combine the two youngest ages and the two oldest ages and compared those. A simplified pair-wise comparison would give us complementary significance cutoffs to the ANOVA, allow for fold-change cutoffs, and give us candidate up or down directional changes.
+We know that the lens will grow over these ages and that older ages will have much more crystallin and other lens proteins. We know how over-expression of a small number of highly abundant proteins alters the proteomes. We assume/know that there will be large differences between the youngest ages and the oldest ages. We could compare E15 to P9, for example. With only 3 replicates, we might get fewer false positive candidates if we combine the two youngest ages and the two oldest ages and compared those (n=6 comparison). A simplified pair-wise comparison would give us complementary significance cutoffs to the ANOVA, allow for fold-change cutoffs, and give us candidate up or down directional changes.
 
 ---
 
@@ -311,9 +311,9 @@ We know that the lens will grow over these ages and that older ages will have mu
 
 ![Slide 27](images/Slide27.png)
 
-Cumulative abundance distribution plots are one way to see if proteomes are similar. What do we mean by "proteome"? Let's define a proteome as a list of proteins present in a sample ranked by relative abundance. We can use the protein total intensity as an abundance ranking value. Sorting by decreasing total intensity puts the major crystallins at the top of the list. We can also express each protein's intensity as a fraction of the total intensity. We can put the proteins in rank order and sum the relative abundances. These cumulative abundance curves distinguish proteomes that have a few highly abundant proteins from those that have more equitable protein abundances (they resemble ROC plots). The behavior of the top few hundred proteins is sufficient.
+Cumulative abundance distribution plots are one way to see if proteomes are similar. What do we mean by "proteome"? Let's define a proteome as a list of proteins present in a sample ranked by relative abundance. We can use the protein total intensity as an abundance ranking value. Sorting by decreasing total intensity puts the major crystallins at the top of the list. We can also express each protein's intensity as a fraction of the total intensity. We can put the proteins in rank order and sum the relative abundances. These cumulative abundance curves distinguish proteomes that have a few highly abundant proteins from those that have more equitable protein abundances (these curves resemble ROC plots). The behavior of the top few hundred proteins is sufficient.
 
-Here we have curves for each age. The average protein intensity at each age computed, ranked from high to low abundance and the cumulate abundances of the top 500 proteins computed. E15 is the slowest rising curve. E18 and P0 have similar proteome compositions (those time points may only be a day apart). The three oldest ages look similar and are the fastest rising curves (proteomes more dominated by highly abundant proteins).
+Here we have curves for each of the 6 ages. The average protein intensity at each age was computed, ranked from high to low abundance, and the cumulate abundances of the top 500 proteins computed. E15 is the slowest rising curve. E18 and P0 have similar proteome compositions (those time points may only be a day apart). The three oldest ages look similar and are the fastest rising curves (proteomes more dominated by highly abundant proteins).
 
 Instead of an arbitrary young versus old comparison to complement the ANOVA testing, it may make more sense to think about young (E15), mid (E18 and P0), and older (P3, P6, and P9) lens age comparisons. There may also be different lens development processes at play between E15 and E18/P0 and between E18/P0 and older lenses. These two pair-wise comparisons may give us finer control for finding proteins of interest (depending on the questions).
 
@@ -325,7 +325,7 @@ Instead of an arbitrary young versus old comparison to complement the ANOVA test
 
 ![Slide 28](images/Slide28.png)
 
-Dimension reduction and clustering is another qualitative way to see differences between biological groups. The ages separate left-to-right by in the first dimension (x-axis). The vertical dotted lines are the average x value for each age. We see that the gap between E15 and E18 is large, as is the gap between P0 and P3. We get the same pattern here as in the cumulative abundance curves.
+Dimension reduction and clustering is another qualitative way to see differences between biological groups. The ages separate left-to-right in the first dimension (x-axis). The vertical dotted lines are the average x value for each age. We see that the gap between E15 and E18 is large, as is the gap between P0 and P3. We get the same pattern here as in the cumulative abundance curves.
 
 A series of pair-wise testing was done between successive ages. The number of significant candidates between ages are shown on the plot. We have more candidates between E15 and E18 and between P0 and P3 than other pairs of ages. This gives us some clues about where (what ages and age difference) to look for interesting proteins, but does not give us any hints about which proteins are the drivers for those differences.
 
@@ -337,7 +337,7 @@ A series of pair-wise testing was done between successive ages. The number of si
 
 We will have to dig into the data in the usual ways to find biological insight. ANOVA gives a large number of candidates because we have ages that span some significant lens changes. We will need some alternative testing to go with the ANOVA results. Young versus old pairwise testing has utility. There are clearly three groups of lens ages that can be compared to each other.
 
-Age changes are likely to be progressive in this experiment so proteins that have a positive slope (intensity versus age), a flat slope, or a negative slope may be useful for categorization. the relative proteome abundance of proteins is also likely to be important. Fiber-cell-specific proteins should be more abundant. Epithelial proteins not involved in fiber cell differentiation are likely of very low abundance. Intermediate abundance proteins may come from differentiating cortical cells.
+Age changes are likely to be progressive in this experiment so proteins that have a positive slope (intensity versus age), a flat slope, or a negative slope may be useful for categorization. The relative proteome abundance of proteins is also likely to be important. Fiber-cell-specific proteins should be more abundant. Epithelial proteins not involved in fiber cell differentiation are likely to be very low abundance. Intermediate abundance proteins may come from differentiating cortical cells.
 
 There are several families of proteins to explore for expression patterns; such as, crystallins, heat shock protein, proteasome complex, etc. Guilt by association is a tried and true strategy.   
 
@@ -349,7 +349,7 @@ Functional enrichment analyses are also commonly used to interpret results. Ther
 
 ![Slide 30](images/Slide30.png)
 
-The well known lens proteins are the logical first sanity check to start with. Seeing what are useful ways to visualize the known changes for these proteins will give us insight into how to approach other proteins. Crystallins and a few other well-known lens proteins were picked. Plots of relative abundances versus age will be done. There are different ways to summarize relative abundances that affect plots. Since the lens is basically a protein sink, differences between succesive ages may tell us what proteins were expressed in that time interval. If we want to compare groups of proteins, what do we have to do to the data to make plots similar?  
+The well known lens proteins are a logical sanity check to start with. Seeing what are useful ways to visualize the known changes for these proteins will give us insight into how to approach other proteins. Crystallins and a few other well-known lens proteins were picked. Plots of relative abundances versus age will be done. There are different ways to summarize relative abundances that affect plots. Since the lens is basically a protein sink, differences between successive ages may tell us what proteins were expressed in that time interval. If we want to compare groups of proteins, what do we have to do to the data to make plots similar?  
 
 ---
 
@@ -357,7 +357,7 @@ The well known lens proteins are the logical first sanity check to start with. S
 
 ![Slide 31](images/Slide31.png)
 
-We can plot the sum of the intensities for the 20 lens proteins versus age (orange line plot) and see what the trend looks like. There is a clear linear trend with a little kink at P0. The time delta between E18 and P0 is less than 3 days and probably explains the dip. We are mostly playing around with the data at this stage and we can scale P0 values to give a more linear trend (the blue line plot).
+We can plot the sum of the intensities for the 20 lens proteins versus age (orange line plot) and see what the trend looks like. There is a clear linear trend with a little kink at P0. The time delta between E18 and P0 is less than 3 days and probably explains the dip. We are mostly playing around with the data at this stage and we can scale P0 intensity values for the 20 proteins to give a more linear trend (the blue line plot).
 
 ---
 
