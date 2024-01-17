@@ -139,7 +139,7 @@ Another good data visualization for seeing before and after IRS effects are scat
 
 ![Slide 11](images/Slide11.png)
 
-IRS resembles batch corrections and one of the best ways to spot batch effects are PCA (principal component analysis) or MDS (multi-dimensional scaling) plots. The left MDS plot has coloring by TMT plex and is the data before IRS. Each plex forms a tight cluster indicating a strong TMT-plex-batch-like effect. The center MDS plot is after IRS and the samples are colored by age. The ages separate along the x-axis. The right MDS plot is after running TMM normalization on the IRS adjusted data. Samples are colored by age and separate along the x-axis.
+IRS resembles batch corrections and one of the best ways to spot batch effects are PCA (principal component analysis) or MDS (multi-dimensional scaling) plots. The left MDS plot has coloring by TMT plex and is the data before IRS. Each plex forms a tight cluster indicating a strong TMT-plex-batch-like effect. The center MDS plot is after IRS and the samples are colored by age. The ages separate along the x-axis. The right MDS plot is after running TMM normalization (discussed in Slide 20) on the IRS adjusted data. Samples are colored by age and separate along the x-axis.
 
 ---  
 
@@ -147,11 +147,11 @@ IRS resembles batch corrections and one of the best ways to spot batch effects a
 
 ![Slide 12](images/Slide12.png)
 
-Perhaps the most common way to check normalizations, are box plots of data distributions. These are log10 intensity value distributions. The coloring is by age. The starting data on the left shows the reduced intensity of the third TMT set. The third box plot for each color has a lower median (the notch) and wider interquartile range (IQR, the top-to-bottom height of the colored box). There is also sag in the medians and IQR with increasing age, although that trend is harder to see in the starting data.
+Perhaps the most common way to check normalizations are box plots of data distributions. The plots here are log10 intensity value distributions. The coloring is by age (dark red is E15, P9 is brighter green, etc.). The starting data on the left shows the reduced intensity of the third TMT set. The third box plot for each color has a lower median (the notch) and wider interquartile range (IQR, the top-to-bottom height of the colored box). There is also a sag in the medians and IQR with increasing age, although that trend is harder to see in this starting data.
 
-The center plot is after IRS. Generally, within each age, the medians and IRQ are horizontally in alignment. The notches and boxes step down in intensities with increasing age. The dark red (E15) samples have higher notches and boxes than the brighter green (P9) samples. The open circle points above the top whiskers are the highly abundant lens proteins like the crystallins. There are more of these highly abundant proteins with increasing age and they push down the rest of the distributions.
+The center plot is after IRS. Within each age, the medians and IRQ are horizontally in alignment. The notches and boxes step down in intensities with increasing age. The dark red (E15) samples have higher notches and boxes than the brighter green (P9) samples. The open circle points above the top whiskers are the highly abundant lens proteins like the crystallins. These highly abundant proteins increase in intensity with increasing age and they push down the rest of the distributions.
 
-This increased expression of crystallins with age is exactly the kind of situation that TMM normalization was designed to address. The box plots on the right are after running TMM on the IRS adjusted data. The median intensities and IQRs are in much better horizontal alignment. The upper whiskers are also now in alignment. The open circle proteins show a steady increase with increasing age.
+This increased expression of crystallins with age is exactly the kind of situation that TMM normalization was designed to address (discussed in Slide 20). The box plots on the right are after running TMM on the IRS adjusted data. The median intensities and IQRs are in much better horizontal alignment. The upper whiskers are also now in alignment. The open circle proteins show a steady increase with increasing age.
 
 ---
 
