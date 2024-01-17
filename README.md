@@ -14,9 +14,9 @@ Mouse lenses are used in a variety of vision research studies and the developmen
 
 ![Slide 2](images/Slide2.png)
 
-Mice lens from 6 development ages (2 embryonic and 4 post-natal) were dissected, homogenized, digested with trypsin, labeled with [tandem mass tag](https://pubs.acs.org/doi/abs/10.1021/ac0262560) reagents (TMT), labeled peptide digests extensively fractionated, and analyzed with liquid chromatography mass spectrometry (LC-MS). Each plex (one TMT experiment) was separated into 24 fractions (LC runs) for deep proteome profiling. The mass spectrometer was a Thermo Lumos Tribrid and used the more accurate SPS-MS3 data acquisition method, although in an odd mode where the MS2 scan was taken in the Orbitrap rather than the linear ion trap.
+Mice lens from 6 development ages (2 embryonic and 4 postnatal) were dissected, homogenized, digested with trypsin, labeled with [tandem mass tag](https://pubs.acs.org/doi/abs/10.1021/ac0262560) reagents (TMT), labeled peptide digests extensively fractionated, and analyzed with liquid chromatography mass spectrometry (LC-MS). Each plex (one TMT experiment) was separated into 24 fractions (LC runs) for deep proteome profiling. The mass spectrometer was a Thermo Lumos Tribrid and used the more accurate SPS-MS3 data acquisition method, although in an odd mode where the MS2 scan was taken in the Orbitrap rather than the linear ion trap.
 
-Several mouse lenses were pooled at each age to get sufficient protein and the set of ages was repeated in 3 separate TMT experiments. The ages and number of animals per pool are listed in the table below:
+Several mouse lenses were pooled at each age to get sufficient protein and the set of ages was repeated in 3 separate TMT experiments. It was not clearly stated in the paper if lenses from 8 mice means 8 lenses or 16 lenses. The ages and number of mice per pool are listed in the table below:
 
 Age|Age label|Number of mice|Number of replicates
 ---|---|---|---
@@ -27,9 +27,9 @@ Newborn|P0|8|3
 6-day old|P6|8|3
 9-day old|P9|8|3
 
-The ages span important early development times and the ages are mostly 3-days apart. The mouse strain is not stated in the above reference. An earlier transcript study suggests that the mice are C57BL/6 strain from Charles River. The gestation period for C57BL/6 mice is 19 days from a web search. The gestational period was not stated in the paper (the E18 and P0 ages are probably more like one day apart).
+The ages span important early development times and the ages are mostly 3-days apart. The mouse strain is not stated in the above reference. An earlier transcript study suggests that the mice are C57BL/6 strain from Charles River. The gestation period for C57BL/6 mice is 19 days from a web search. The gestational period was not stated in the paper (the E18 and P0 ages are probably 1 to 1.5 days apart).
 
-I do not know what to call repeated pools of different biological subjects. They are not true biological replicates because the pooling is a form of averaging. Variance is likely lower for a set of pooled samples compared to the same number of individual samples; however, inbred mouse stains have low biological variance by design.
+I do not know what to call repeated pools of different biological subjects. They are not true biological replicates because the pooling is a form of averaging. Variance is likely lower for a set of pooled samples compared to the same number of individual samples; however, inbred mouse stains have low biological variance by design. They are not strictly technical replicates either as sample collection and processing was done independently. 
 
 ---
 
