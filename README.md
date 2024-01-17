@@ -379,7 +379,7 @@ We can try a more normalized scale for relative abundance by expressing each pro
 
 > Protein abundances summing to 100% is another example of a constrained system.
 
-Protein trends are mostly flatter with age. The four proteins of interest all have relatively greater abundances at later ages. As they increase, the other lens proteins have to decrease as percentage of the total.
+Protein trends are mostly flatter with age. The four proteins of interest all have relatively greater abundances at later ages. As they increase, the other lens proteins have to decrease as percentages of the total.
 
 ---
 
@@ -387,7 +387,7 @@ Protein trends are mostly flatter with age. The four proteins of interest all ha
 
 ![Slide 34](images/Slide34.png)
 
-Transcriptome studies give more of a snapshot of mRNA expression levels at a given age. Each lens age here is an integral of all protein synthesized from T=0 up to the lens age. We can get something more like time snapshots by subtracting pars of ages. E18 intensities minus E15 intensities should reflect protein synthesis in that 3 day interval. We can subtract successive ages and plot those differences. Only the 15 highest intensity proteins were used to avoid negative delta intensities. The differences are noisier; however, they do amplify the increasing abundances of the three (beta B2, alpha B, and gamma S) interesting proteins. This difference between times trick barely works for crystallins and cannot be used for lower abundance proteins.
+Transcriptome studies give more of a snapshot of mRNA expression levels at a given age. Each lens age here is an integral of all protein synthesized from T=0 up to the lens age. We can get something more like time snapshots by subtracting pairs of ages. E18 intensities minus E15 intensities should reflect protein synthesis in that 3 day interval. We can subtract successive ages and plot those differences. Only the 15 highest intensity proteins were used to avoid negative delta intensities. The differences are noisier; however, they do amplify the increasing abundances of the three interesting proteins (beta B2, alpha B, and gamma S). Unfortunately, this difference between ages trick barely works for crystallins and cannot be used for lower abundance proteins.
 
 ---
 
@@ -397,7 +397,7 @@ Transcriptome studies give more of a snapshot of mRNA expression levels at a giv
 
 This is a neat plot. Here the 20 proteins are shown as a series of column plots. To make each protein plot similar in size, per protein intensity normalization was done. We divide the protein intensity at each age by a central tendency of the 6 ages. We can use either the average intensity in the denominator or use the median intensity in the denominator. The median works better. Most of the lens proteins show steady abundance increases with age (highlighted by black arrows). Proteins with ramped up expression with age, like beta B2, show more dramatic increases (highlighted with red arrows).
 
-More subtle trends can be seen like gamma B and gamma C which also have some increased expression with age. The pattern for connexin-50 (Gja8) rises and flattens off. Gamma N also seem to rise like other lens proteins but has a shallower rise (very early expression?). Fatty acid binding protein is clearly a major lens protein in mouse lens. It is abundant enough to be seen in 2D-PAGE studies and has ramped up expression similar to beta B2. There may be 150 or so total lens proteins enriched in mature fiber cells. That leaves 100+ other proteins besides FABP to discover in this data.
+More subtle trends can be seen like gamma B and gamma C which also have some increased expression with age. The pattern for connexin-50 (Gja8) rises and flattens off. Gamma N seems to rise like the other lens protein patterns (black arrows) but has a shallower rise (very early expression?). Fatty acid binding protein is clearly a major lens protein in mouse lens. It is abundant enough to be seen in 2D-PAGE studies and has ramped up expression similar to beta B2. There may be 150 or so total lens proteins enriched in mature fiber cells. That leaves 100+ other proteins besides FABP to discover in this data.
 
 ---
 
@@ -405,13 +405,13 @@ More subtle trends can be seen like gamma B and gamma C which also have some inc
 
 ![Slide 36](images/Slide36.png)
 
-We have one more sanity check. Relative crystallin abundances for newborn (P0) lenses were reported in Ueda et al., 2002. We can see how total protein reporter ion intensity in a bottom up quantitative study compares to whole protein separation/quantification from 2D-PAGE studies.
+We have one more sanity check. Relative crystallin abundances for newborn (P0) lenses were reported in Ueda et al., 2002. We can see how total protein reporter ion intensity in a bottom-up quantitative study compares to whole protein separation/quantification from 2D-PAGE studies.
 
-We have to work though one annoying aspect of bottom up quantitative proteomics first. The issue is what do we do with the intensities of peptides that come from more than one protein (shared peptides)? This re-analysis did two things to minimize this issue. A canonical UniProt mouse FASTA file was used. These are one protein per gene sequence collections and peptide redundancy is low (most peptides map to just one protein). The PAW pipeline also have an extended parsimony protein grouping step. When proteins mostly have the same peptides and have just a few distinguishing peptides (common for housekeeping protein families), they are grouped so that all peptides can be used to quantify the family.
+We have to work though one annoying aspect of bottom-up quantitative proteomics first. The issue is what do we do with the intensities of peptides that come from more than one protein (shared peptides)? This re-analysis did two things to minimize this issue. A canonical UniProt mouse FASTA file was used. These are one protein per gene sequence collections and peptide redundancy is low (most peptides map to just one protein). The PAW pipeline also have an extended parsimony protein grouping step. When proteins mostly have the same peptides and have just a few distinguishing peptides (common for housekeeping protein families), they are grouped so that all peptides can be used to quantify the family.
 
-We really can't use intensities of shared peptides in protein total because we do not know what fraction of the intensity comes from each contributing protein. Any shared peptides after picking a good FASTA file and grouping highly similar proteins are excluded from quantification. When we exclude the intensities of shared peptides, the protein total from the unique peptides is a lower value than the true protein value.
+We really can't use intensities of shared peptides in protein totals because we do not know what fraction of the intensity comes from each contributing protein. Any shared peptides (after picking a good FASTA file and grouping highly similar proteins) are excluded from quantification. When we exclude the intensities of shared peptides, the protein total from the unique peptides is a lower value than the true protein value.
 
-The gamma crystallin family in higher eukaryotic lenses have a lot of sequence homology between protein domains. We end up with a larger than typical degree of shared peptides that have to be excluded from quantitation for gamma crystallins. Gamma E and F are very similar and they were grouped in the extended parsimony analysis step. Gamma D has mostly shared peptides. Gamma E/F and gamma C have many shared peptides. Gamma B has fewer shared peptides and gamma A is mostly unique peptides.
+The gamma crystallin family in higher eukaryotic lenses have a lot of sequence homology between protein domains. We end up with a larger-than-typical degree of shared peptides that have to be excluded from quantitation for gamma crystallins. Gamma E and F are very similar and they were grouped in the extended parsimony analysis step. Gamma D has mostly shared peptides. Gamma E/F and gamma C have many shared peptides. Gamma B has fewer shared peptides and gamma A is mostly unique peptides.
 
 ---
 
@@ -419,7 +419,7 @@ The gamma crystallin family in higher eukaryotic lenses have a lot of sequence h
 
 ![Slide 37](images/Slide37.png)
 
-We can estimate the relative protein abundance within the gamma crystallins from the unique reporter ion totals for each protein. We can then split the intensities of the shared peptides according to the relative gamma abundances. If a shared peptide came from just two gammas and each gamma had the same unique intensity total, the shared peptide intensity would be split 50/50. This was done by hand for the P0 age in the Set 1 data to see how much increase in the gamma intensities comes from shared peptides.
+We can estimate the relative protein abundance within the gamma crystallins from the unique reporter ion totals for each protein. We can then split the intensities of the shared peptides according to the relative gamma abundances. If a shared peptide came from just two gammas and each gamma had the same unique intensity total, the shared peptide intensity would be split 50/50. This was done by hand for the P0 age in the Set 1 data to see how much increase in the gamma intensities could come from shared peptides.
 
 ---
 
