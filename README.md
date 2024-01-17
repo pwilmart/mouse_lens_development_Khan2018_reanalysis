@@ -2,7 +2,7 @@
 
 *Slide 1*
 
-![Slide 1](Khan-2018_reanalysis/Slide1.png)
+![Slide 1](images/Slide1.png)
 
 Mouse lenses are used in a variety of vision research studies and the development of the young mouse lens is an important reference system to characterize. In 2018, [Kahn et al.](https://iovs.arvojournals.org/article.aspx?articleid=2670138) published a deep proteome profiling of the developing mouse lens. The data is publicly available from the Proteomics Identification Database (PRIDE) with project number [PXD006381](https://www.ebi.ac.uk/pride/archive/projects/PXD006381). A thorough re-analysis of the data is presented here as a resource for the lens research community.
 
@@ -12,7 +12,7 @@ Mouse lenses are used in a variety of vision research studies and the developmen
 
 *Slide 2*
 
-![Slide 2](Khan-2018_reanalysis/Slide2.png)
+![Slide 2](images/Slide2.png)
 
 Mice lens from 6 development ages (2 embryonic and 4 post-natal) were dissected, homogenized, digested with trypsin, labeled with [tandem mass tag](https://pubs.acs.org/doi/abs/10.1021/ac0262560) reagents (TMT), labeled peptide digests extensively fractionated, and analyzed with liquid chromatography mass spectrometry (LC-MS). Each plex (one TMT experiment) was separated into 24 fractions (LC runs) for deep proteome profiling. The mass spectrometer was a Thermo Lumos Tribrid and used the more accurate SPS-MS3 data acquisition method, although in an odd mode where the MS2 scan was taken in the Orbitrap rather than the linear ion trap.
 
@@ -35,7 +35,7 @@ I do not know what to call repeated pools of different biological subjects. They
 
 *Slide 3*
 
-![Slide 3](Khan-2018_reanalysis/Slide3.png)
+![Slide 3](images/Slide3.png)
 
 The publicly available data (72 RAW files; 3x24) was downloaded from PRIDE and processed with the [PAW pipeline](https://github.com/pwilmart/PAW_pipeline). The [Comet search engine](https://uwpr.github.io/Comet/) was used to assign peptide sequences to MS2 spectra. The protein sequence collection was a UniProt canonical mouse FASTA file (21,957 sequences; downloaded June 2023) with 175 common contaminants and concatenated reversed-sequence decoys. Precursor tolerance was 1.25 Da (monoisotopic), fragment ion tolerance was 0.02 Da (monoisotopic), semi-tryptic cleavages were specified with up 2 missed cleavages, variable oxidation of methionine was allowed, and static modifications were used for alkylation of cysteine and TMT reagents (10-plex 229.1629 Da) on peptide N-terminus and lysines.
 
@@ -51,7 +51,7 @@ The experiment has each set of replicates done in a separate TMT experiment (ple
 
 *Slide 4*
 
-![Slide 4](Khan-2018_reanalysis/Slide4.png)
+![Slide 4](images/Slide4.png)
 
 Across the 3 plexes, almost 1.5 million MS2/MS3 scans were acquired. The ID rate was okay (almost 19%) and 278K scans passed the FDR filtering. The first set ran the best producing the highest numbers of filtered PSMs and inferred proteins. The second set showed a drop in number of confident PSMs although the total reporter ion intensity was similar to set 1. The third set showed some significant drops in IDs and intensities. The mass calibration and resolution was very good.
 
@@ -59,7 +59,7 @@ Across the 3 plexes, almost 1.5 million MS2/MS3 scans were acquired. The ID rate
 
 *Slide 5*
 
-![Slide 5](Khan-2018_reanalysis/Slide5.png)
+![Slide 5](images/Slide5.png)
 
  The PAW pipeline outperformed the original analysis that used Proteome Discoverer. Some search parameters were not optimal in the original analysis like the mouse Swiss-Prot database choice (17K sequences is a little incomplete) and the 10 PPM precursor mass tolerance (narrow tolerance searches render accurate masses useless in distinguishing correct and incorrect PSMs). Most commercial and non-commercial proteomics data analyses software packages perform poorly and/or have conceptually flawed default parameter settings. The poor performance is already apparent for basic peptide and protein identifications. Quantification is more complicated than identification and I have not seen any adequate quantitative results from any other software I have used in my 20+ years doing proteomics data analysis. I spend the considerable time and effort coding my pipeline because there were (and still are not) any other usable choices for quantitative TMT experiments.
 
@@ -67,7 +67,7 @@ Across the 3 plexes, almost 1.5 million MS2/MS3 scans were acquired. The ID rate
 
  *Slide 6*
 
- ![Slide 6](Khan-2018_reanalysis/Slide6.png)
+ ![Slide 6](images/Slide6.png)
 
  We have data (protein intensities) from each TMT plex and we need to get it into a single summary table before we can do anything with the data. Each plex contains a full set of ages and each plex is one set of age replicates. [Internal reference scaling (IRS)](https://www.sciencedirect.com/science/article/pii/S1535947620323938) is the most rigorous way to combine multiple TMT plexes. It was developed in 2017 and has been cited in over 250 publications to date. IRS is not just a data adjustment method (a special type of normalization), it is also an experimental design description. The IRS design uses duplicate channels of a pooled peptide digest internal standard in each plex to compute individual protein intensity scaling factors to put all plexes on a common intensity scale. See https://pwilmart.github.io/TMT_analysis_examples/IRS_validation.html for more details.
 
@@ -83,7 +83,7 @@ Across the 3 plexes, almost 1.5 million MS2/MS3 scans were acquired. The ID rate
 
  *Slide 7*
 
- ![Slide 7](Khan-2018_reanalysis/Slide7.png)
+ ![Slide 7](images/Slide7.png)
 
  IRS is not a general purpose normalization algorithm. TMT experiments have a very specific distortion of the measurements related to the way the mass spec instrument samples analytes. IRS is a very specific data adjustment that addresses just this instrument distortion. It removes the pseudo random instrument sampling of eluting peptide ions. It bears repeating: **IRS is not a general-purpose normalization technique.** IRS is more like a batch-correction method.
 
@@ -97,7 +97,7 @@ Across the 3 plexes, almost 1.5 million MS2/MS3 scans were acquired. The ID rate
 
  *Slide 8*
 
- ![Slide 8](Khan-2018_reanalysis/Slide8.png)
+ ![Slide 8](images/Slide8.png)
 
 We can check a few things to see exactly what effect IRS has on the TMT data. We expect our mock reference channels to be very similar between the 3 plexes because they are from highly similar mice, many lenses were pooled at each age, and we are averaging over 6 ages. We can make scatter plots of the three plex averages to each other before IRS (on the left) and after IRS (on the right). This is circular, of course, because the IRS algorithm makes the reference channels (the plex averages here) identical. The box plots in the center are before IRS for the first 3 and are after IRS for the 3 on the right.
 
@@ -105,7 +105,7 @@ We can check a few things to see exactly what effect IRS has on the TMT data. We
 
 *Slide 9*
 
-![Slide 9](Khan-2018_reanalysis/Slide9.png)
+![Slide 9](images/Slide9.png)
 
 IRS dramatically reduces the variance between replicates at each age. A great metric for seeing what effect normalization has on within biological group variance are distributions of the coefficients of variance (CVs). The average median CVs drop from 54% to less than 14%, about a 4-fold improvement. This has dramatic effects on statistical testing.
 
@@ -113,7 +113,7 @@ IRS dramatically reduces the variance between replicates at each age. A great me
 
 *Slide 10*
 
-![Slide 10](Khan-2018_reanalysis/Slide10.png)
+![Slide 10](images/Slide10.png)
 
 Another good data visualization for seeing before and after IRS effects are scatter plot grids of within biological group samples (mice ages here). Three ages (E18, P0, and P6) are shown. The top grids are before IRS. The bottom grids are after IRS. There is dramatically reduced scatter after IRS.
 
@@ -121,7 +121,7 @@ Another good data visualization for seeing before and after IRS effects are scat
 
 *Slide 11*
 
-![Slide 11](Khan-2018_reanalysis/Slide11.png)
+![Slide 11](images/Slide11.png)
 
 IRS resembles batch corrections and one of the best ways to spot batch effects are PCA (principal component analysis) or MDS (multi-dimensional scaling) plots. The left MDS plot has coloring by TMT plex and is the data before IRS. Each plex forms a tight cluster indicating a strong TMT-plex-batch-like effect. The center MDS plot is after IRS and the samples are colored by age. The ages separate along the x-axis. The right MDS plot is after running TMM normalization on the IRS adjusted data. Samples are colored by age and separate along the x-axis.
 
@@ -129,7 +129,7 @@ IRS resembles batch corrections and one of the best ways to spot batch effects a
 
 *Slide 12*
 
-![Slide 12](Khan-2018_reanalysis/Slide12.png)
+![Slide 12](images/Slide12.png)
 
 Perhaps the most common way to check normalizations, are box plots of data distributions. These are log10 intensity value distributions. The coloring is by age. The starting data on the left shows the reduced intensity of the third TMT set. The third box plot for each color has a lower median (the notch) and wider interquartile range (IQR, the top-to-bottom height of the colored box). There is also sag in the medians and IQR with increasing age, although that trend is harder to see in the starting data.
 
@@ -141,7 +141,7 @@ This increased expression of crystallins with age is exactly the kind of situati
 
 *Slide 13*
 
-![Slide 13](Khan-2018_reanalysis/Slide13.png)
+![Slide 13](images/Slide13.png)
 
 The previous few slides were some of the quality control checks and data visualizations that we can do before any statistical testing. It is important to check that the collected data looks okay for all samples. There are many things that can (and do) go wrong in these experiments. The QC steps also give us insight into the data and inform what statistical testing to try.
 
@@ -151,7 +151,7 @@ Data normalization assumptions (what data aspect to make more similar) and the n
 
 *Slide 14*
 
-![Slide 14](Khan-2018_reanalysis/Slide14.png)
+![Slide 14](images/Slide14.png)
 
 There is a lot that is known about mouse lenses and aging changes. I suspect many readers of this writeup will know far more than me about mouse lenses. A recommended paper is [Ueda et al., 2002](https://iovs.arvojournals.org/article.aspx?articleid=2123357) from back in the day when 2D-PAGE and proteomics were almost synonymous. Seeing only lens crystallins in 2D-PAGE studies is no accident. There are a lot of crystallin proteins in lenses and 2D-PAGE has maybe a 1:20 to 1:50 dynamic range with visible staining. Crystallins and some other major lens proteins have been extensively studied. They give us some known developmental expression patterns and provide some sanity checks.
 
@@ -165,7 +165,7 @@ When a whole lens is homogenized and protein extracted from the cells, the prote
 
 *Slide 15*                                                       
 
-![Slide 15](Khan-2018_reanalysis/Slide15.png)
+![Slide 15](images/Slide15.png)
 
 The lens grows from conception until death (although not at constant rates). Rates of lens growth slow with older ages. There are geometric factors affecting total lens protein composition. The surface area of spheres grows as R squared. The volumes of spheres grow as R cubed. Larger lens will have relatively more mature fiber cells (interior volume) compared to epithelial cells (half the surface area), for example.
 
@@ -177,7 +177,7 @@ The whole lens protein extracts at each age are the bulk average over all these 
 
 *Slide 16*
 
-![Slide 16](Khan-2018_reanalysis/Slide16.png)
+![Slide 16](images/Slide16.png)
 
 It is not too hard to calculate how sphere surface area and volume change as a function of sphere diameter to better understand how lens growth alter proteome composition. The figure shows the cross section of two spheres. The inner light blue sphere has half the volume as the outer dark blue sphere. The diameter only increases by 1.26 yet the sphere volume doubles. The surface area is 1.6 times larger.
 
@@ -185,7 +185,7 @@ It is not too hard to calculate how sphere surface area and volume change as a f
 
 *Slide 17*
 
-![Slide 17](Khan-2018_reanalysis/Slide17.png)
+![Slide 17](images/Slide17.png)
 
 In light of the geometric factors from a growing lens and the compositional differences of epithelial, cortex, and mature fiber cells, data normalization will be critical to understanding changes in mouse lens with age.
 
@@ -197,7 +197,7 @@ There are also numerous data normalization software algorithms that can be appli
 
 *Slide 18*
 
-![Slide 18](Khan-2018_reanalysis/Slide18.png)
+![Slide 18](images/Slide18.png)
 
 Another serious misconception in these experiments is that only one software normalization step is needed. Multi-plex, fractionated TMT experiments will require many LC runs and many hours of instrument use. Instrument (LC and mass spec) performance will wax and wane over the course of the experiment as system suitability is monitored and addressed (tuning, calibrating, cleaning, etc.). Some coarse data adjustments may be needed before specific data adjustments like IRS are applied. TMT data after IRS has the same data characteristics as any single-plex TMT data set. Any biological normalizations (matching grand totals, matching medians, TMM, etc.) that would be used on single plex TMT data should be applied to IRS-adjusted TMT data, too. Multi-plex TMT experiments typically require three software data normalization steps.
 
@@ -205,7 +205,7 @@ Another serious misconception in these experiments is that only one software nor
 
 *Slide 19*
 
-![Slide 19](Khan-2018_reanalysis/Slide19.png)
+![Slide 19](images/Slide19.png)
 
  Biological normalization and the null hypothesis in a statistical test are related concepts. Normalizations make something about the data more similar (not changing). A common assumption in many experiments is that the bulk of the proteins are not changing in abundance. Good data normalization (under this assumption0) would minimize the abundance differences for the bulk of the proteins. This should sound a lot like hypothesis testing where most proteins fall into the null hypothesis category (unchanged abundances between conditions) and the probability that some proteins are not likely (small p-values) to fall into the null category are the proteins of interest. The probabilities for rejecting protein abundance differences between conditions will directly reflect how similar or different the bulk of the proteins are between conditions after normalization. Different normalization algorithms will result in different data values and different statistical modeling p-values. These differences can be enormous.  
 
@@ -215,7 +215,7 @@ Another serious misconception in these experiments is that only one software nor
 
  *Slide 20*
 
- ![Slide 20](Khan-2018_reanalysis/Slide20.png)
+ ![Slide 20](images/Slide20.png)
 
 Matched intensity totals between samples is one way to normalize the data in TMT experiments (the same total amount of protein per sample is labeled), but may not be an appropriate normalization of the data. The constrained nature of the experimental designs leaves the data vulnerable to distortions if highly abundant proteins change in abundance. Highly abundant proteins contribute more to the signal total and the constrained total limits how much abundant proteins can differ. If the high abundance proteins increase in abundance, all other proteins have to decrease in abundance to have the same total.
 
@@ -229,7 +229,7 @@ The [Trimmed Mean of M-values (TMM)](https://link.springer.com/content/pdf/10.11
 
  *Slide 21*
 
-![Slide 21](Khan-2018_reanalysis/Slide21.png)
+![Slide 21](images/Slide21.png)
 
  The two normalization choices result in dramatically different statistical testing results. One-way ANOVA tests if all 6 ages have similar intensities. Small p-values mean that one or more of the ages differed from the rest of the ages. We do not know which age(s) were different until we examine the data for each protein. Because we have some prior knowledge of mouse lens development, we expect proteins to go up with age, down with age, or (maybe) stay more similar. We can take the two earliest ages (E15 and E18) and compare those to the two older ages (P6 and P9) using an easier to understand par-wise testing.
 
@@ -239,7 +239,7 @@ The [Trimmed Mean of M-values (TMM)](https://link.springer.com/content/pdf/10.11
 
  *Slide 22*
 
-![Slide 22](Khan-2018_reanalysis/Slide22.png)
+![Slide 22](images/Slide22.png)
 
  We can explore the characteristics of the DE candidates that we get when using intensity grand total matching between samples. The box plots are colored to show the 6 early ages (in blue) that are compared to the later ages (in green).
 
@@ -251,7 +251,7 @@ The [Trimmed Mean of M-values (TMM)](https://link.springer.com/content/pdf/10.11
 
  *Slide 23*
 
-![Slide 23](Khan-2018_reanalysis/Slide23.png)
+![Slide 23](images/Slide23.png)
 
  These are the same plots for the data after TMM normalization. Not surprisingly, we have balanced numbers of up and down DE candidates. There are also many more non-significant proteins. The numbers of candidates above or below the 2-fold lines are smaller (in total - more red points but far fewer blue points). There are still large numbers of statistically significant proteins with less than 2-fold changes. It is unlikely that mature fiber cells have over a thousand proteins, so a fold-change cutoff in addition to a statistical significance cutoff would probably be needed.
 
@@ -259,7 +259,7 @@ The [Trimmed Mean of M-values (TMM)](https://link.springer.com/content/pdf/10.11
 
  *Slide 24*
 
-![Slide 24](Khan-2018_reanalysis/Slide24.png)
+![Slide 24](images/Slide24.png)
 
  Other data visualizations can be used to contrast the two normalization methods, such as distributions of log2 fold change color coded and faceted by statistical significance cuts (purple > 0.10 > teal > 0.05 > olive > 0.01 > orange). It is clear that TMM better centers the data for the bulk of the proteins.
 
@@ -267,7 +267,7 @@ The [Trimmed Mean of M-values (TMM)](https://link.springer.com/content/pdf/10.11
 
  *Slide 25*
 
-![Slide 25](Khan-2018_reanalysis/Slide25.png)
+![Slide 25](images/Slide25.png)
 
  We can also do faceted MA plots by significance cuts. Hopefully, the interplay between data normalization and statistical testing significance is now more apparent.       
 
@@ -281,7 +281,7 @@ Maybe lower abundance proteins play important roles in developmental processes i
 
 *Slide 26*
 
-![Slide 26](Khan-2018_reanalysis/Slide26.png)
+![Slide 26](images/Slide26.png)
 
 Now that we have addressed some of the messy data details that influence the results we will get, we can start thinking about how to interpret the results. There are 6 ages, so time course patterns of protein expression will be of interest. Visualizing time course data is very challenging. With 6 time points, there are many possible patterns (steady up, steady down, flat, flat then up, flat then down, down the flat, up then flat, rise and fall, fall and rise, etc.). These time patterns will depend on the normalization choice similar to how statistical modeling was affected. Small relative differences between ages and/or noisy data can make patterns hard to see. Clustering proteins by similar patterns sounds possible, but that is a difficult problem to code.
 
@@ -293,7 +293,7 @@ We know that the lens will grow over these ages and that older ages will have mu
 
 *Slide 27*
 
-![Slide 27](Khan-2018_reanalysis/Slide27.png)
+![Slide 27](images/Slide27.png)
 
 Cumulative abundance distribution plots are one way to see if proteomes are similar. What do we mean by "proteome"? Let's define a proteome as a list of proteins present in a sample ranked by relative abundance. We can use the protein total intensity as an abundance ranking value. Sorting by decreasing total intensity puts the major crystallins at the top of the list. We can also express each protein's intensity as a fraction of the total intensity. We can put the proteins in rank order and sum the relative abundances. These cumulative abundance curves distinguish proteomes that have a few highly abundant proteins from those that have more equitable protein abundances (they resemble ROC plots). The behavior of the top few hundred proteins is sufficient.
 
@@ -307,7 +307,7 @@ Instead of an arbitrary young versus old comparison to complement the ANOVA test
 
 *Slide 28*
 
-![Slide 28](Khan-2018_reanalysis/Slide28.png)
+![Slide 28](images/Slide28.png)
 
 Dimension reduction and clustering is another qualitative way to see differences between biological groups. The ages separate left-to-right by in the first dimension (x-axis). The vertical dotted lines are the average x value for each age. We see that the gap between E15 and E18 is large, as is the gap between P0 and P3. We get the same pattern here as in the cumulative abundance curves.
 
@@ -317,7 +317,7 @@ A series of pair-wise testing was done between successive ages. The number of si
 
 *Slide 29*
 
-![Slide 29](Khan-2018_reanalysis/Slide29.png)
+![Slide 29](images/Slide29.png)
 
 We will have to dig into the data in the usual ways to find biological insight. ANOVA gives a large number of candidates because we have ages that span some significant lens changes. We will need some alternative testing to go with the ANOVA results. Young versus old pairwise testing has utility. There are clearly three groups of lens ages that can be compared to each other.
 
@@ -331,7 +331,7 @@ Functional enrichment analyses are also commonly used to interpret results. Ther
 
 *Slide 30*
 
-![Slide 30](Khan-2018_reanalysis/Slide30.png)
+![Slide 30](images/Slide30.png)
 
 The well known lens proteins are the logical first sanity check to start with. Seeing what are useful ways to visualize the known changes for these proteins will give us insight into how to approach other proteins. Crystallins and a few other well-known lens proteins were picked. Plots of relative abundances versus age will be done. There are different ways to summarize relative abundances that affect plots. Since the lens is basically a protein sink, differences between succesive ages may tell us what proteins were expressed in that time interval. If we want to compare groups of proteins, what do we have to do to the data to make plots similar?  
 
@@ -339,7 +339,7 @@ The well known lens proteins are the logical first sanity check to start with. S
 
 *Slide 31*  
 
-![Slide 31](Khan-2018_reanalysis/Slide31.png)
+![Slide 31](images/Slide31.png)
 
 We can plot the sum of the intensities for the 20 lens proteins versus age (orange line plot) and see what the trend looks like. There is a clear linear trend with a little kink at P0. The time delta between E18 and P0 is less than 3 days and probably explains the dip. We are mostly playing around with the data at this stage and we can scale P0 values to give a more linear trend (the blue line plot).
 
@@ -347,7 +347,7 @@ We can plot the sum of the intensities for the 20 lens proteins versus age (oran
 
 *Slide 32*
 
-![Slide 32](Khan-2018_reanalysis/Slide32.png)
+![Slide 32](images/Slide32.png)
 
 We can plot adjusted intensities versus age for each of the 20 proteins. The intensities of the individual proteins have a wide range of values. We can try log intensities and pick axis limits to get all 20 proteins in one plot (on the left). Most of the proteins follow similar increasing trend curves. Four proteins show more dramatic changes with age: alpha B (darker green), beta B2 (black), gamma S (grey), and fatty acid binding protein (FABP) (lighter green). We can also try a linear intensity y-axis (on the right). We need to expand the y-axis limits so we can see the trends in the 4 interesting proteins. These plots are pretty busy, though.
 
@@ -357,7 +357,7 @@ We can plot adjusted intensities versus age for each of the 20 proteins. The int
 
 *Slide 33*
 
-![Slide 33](Khan-2018_reanalysis/Slide33.png)
+![Slide 33](images/Slide33.png)
 
 We can try a more normalized scale for relative abundance by expressing each protein as a percentage of the intensity total for that age. This has been commonly done for 2D-PAGE studies.
 
@@ -369,7 +369,7 @@ Protein trends are mostly flatter with age. The four proteins of interest all ha
 
 *Slide 34*
 
-![Slide 34](Khan-2018_reanalysis/Slide34.png)
+![Slide 34](images/Slide34.png)
 
 Transcriptome studies give more of a snapshot of mRNA expression levels at a given age. Each lens age here is an integral of all protein synthesized from T=0 up to the lens age. We can get something more like time snapshots by subtracting pars of ages. E18 intensities minus E15 intensities should reflect protein synthesis in that 3 day interval. We can subtract successive ages and plot those differences. Only the 15 highest intensity proteins were used to avoid negative delta intensities. The differences are noisier; however, they do amplify the increasing abundances of the three (beta B2, alpha B, and gamma S) interesting proteins. This difference between times trick barely works for crystallins and cannot be used for lower abundance proteins.
 
@@ -377,7 +377,7 @@ Transcriptome studies give more of a snapshot of mRNA expression levels at a giv
 
 *Slide 35*
 
-![Slide 35](Khan-2018_reanalysis/Slide35.png)
+![Slide 35](images/Slide35.png)
 
 This is a neat plot. Here the 20 proteins are shown as a series of column plots. To make each protein plot similar in size, per protein intensity normalization was done. We divide the protein intensity at each age by a central tendency of the 6 ages. We can use either the average intensity in the denominator or use the median intensity in the denominator. The median works better. Most of the lens proteins show steady abundance increases with age (highlighted by black arrows). Proteins with ramped up expression with age, like beta B2, show more dramatic increases (highlighted with red arrows).
 
@@ -387,7 +387,7 @@ More subtle trends can be seen like gamma B and gamma C which also have some inc
 
 *Slide 36*
 
-![Slide 36](Khan-2018_reanalysis/Slide36.png)
+![Slide 36](images/Slide36.png)
 
 We have one more sanity check. Relative crystallin abundances for newborn (P0) lenses were reported in Ueda et al., 2002. We can see how total protein reporter ion intensity in a bottom up quantitative study compares to whole protein separation/quantification from 2D-PAGE studies.
 
@@ -401,7 +401,7 @@ The gamma crystallin family in higher eukaryotic lenses have a lot of sequence h
 
 *Slide 37*
 
-![Slide 37](Khan-2018_reanalysis/Slide37.png)
+![Slide 37](images/Slide37.png)
 
 We can estimate the relative protein abundance within the gamma crystallins from the unique reporter ion totals for each protein. We can then split the intensities of the shared peptides according to the relative gamma abundances. If a shared peptide came from just two gammas and each gamma had the same unique intensity total, the shared peptide intensity would be split 50/50. This was done by hand for the P0 age in the Set 1 data to see how much increase in the gamma intensities comes from shared peptides.
 
@@ -409,7 +409,7 @@ We can estimate the relative protein abundance within the gamma crystallins from
 
 *Slide 38*
 
-![Slide 38](Khan-2018_reanalysis/Slide38.png)
+![Slide 38](images/Slide38.png)
 
 We see that including contributions from shared peptides can change the gamma intensities by quite a lot. We need to use these gamma boost factors to compare results to Ueda et al., 2002.
 
@@ -417,7 +417,7 @@ We see that including contributions from shared peptides can change the gamma in
 
 *Slide 39*
 
-![Slide 39](Khan-2018_reanalysis/Slide39.png)
+![Slide 39](images/Slide39.png)
 
 The table on the left has the relative percentages from Ueda et al., 2002 in the second column. The default TMT intensity totals are in the third column. The default is to exclude shared peptides. The last column has the boosted gamma values.
 
@@ -427,7 +427,7 @@ The scatter plot compares the values in column 2 (x-axis) to column 4 (y-axis). 
 
 *Slide 40*
 
-![Slide 40](Khan-2018_reanalysis/Slide40.png)
+![Slide 40](images/Slide40.png)
 
 How did the re-analysis turn out? The data from Khan et al., 2018 seems good. The proteome depth (over 4,000 proteins) is excellent. Using IRS to combine the three plexes results in a better data table for analysis than using ratios. The over-expression of crystallins in lens creates a proteome where data normalization choices dramatically alter statistical testing results. Understanding what different data normalizations do to the data and how that manifests itself in the statistical testing is critical.
 
