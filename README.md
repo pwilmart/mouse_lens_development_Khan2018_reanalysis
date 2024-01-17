@@ -1,5 +1,21 @@
 # mouse_lens_development_Khan2018_reanalysis
 
+## Data from PRIDE: [PXD006381](https://www.ebi.ac.uk/pride/archive/projects/PXD006381)
+
+## Publication from IOVS: [Khan et al. 2018](https://iovs.arvojournals.org/article.aspx?articleid=2670138)
+
+### Re-analysis by Dr. Phillip Wilmarth<br>Proteomics Shared Resource<br>Oregon Health & Science University<br>Late 2023 and early 2024
+
+---
+
+## Overview
+
+This README file describes the re-analysis of a large mouse lens development study using quantitative bottom-up proteomics methods (fractionated 10-plex TMT labeling). The description is in a presentation style with slide images followed by detailed descriptions.
+
+---
+
+## Presentation (40 slides) 
+
 *Slide 1*
 
 ![Slide 1](images/Slide1.png)
@@ -29,7 +45,7 @@ Newborn|P0|8|3
 
 The ages span important early development times and the ages are mostly 3-days apart. The mouse strain is not stated in the above reference. An earlier transcript study suggests that the mice are C57BL/6 strain from Charles River. The gestation period for C57BL/6 mice is 19 days from a web search. The gestational period was not stated in the paper (the E18 and P0 ages are probably 1 to 1.5 days apart).
 
-I do not know what to call repeated pools of different biological subjects. They are not true biological replicates because the pooling is a form of averaging. Variance is likely lower for a set of pooled samples compared to the same number of individual samples; however, inbred mouse stains have low biological variance by design. They are not strictly technical replicates either as sample collection and processing was done independently. 
+I do not know what to call repeated pools of different biological subjects. They are not true biological replicates because the pooling is a form of averaging. Variance is likely lower for a set of pooled samples compared to the same number of individual samples; however, inbred mouse stains have low biological variance by design. They are not strictly technical replicates either as sample collection and processing was done independently.
 
 ---
 
