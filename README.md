@@ -6,6 +6,14 @@
 
 ### Re-analysis by Dr. Phillip Wilmarth<br>Proteomics Shared Resource<br>Oregon Health & Science University<br>Late 2023 and early 2024
 
+The top directory has this presentation, which is an overview of the re-analysis. There are three folders:
+
+- `PAW_files`: The starting results files produced by the PAW pipeline. The folder has a README file with more details.
+
+- `Notebooks`: Jupyter notebook files that perform quality control checks and perform various statistical testing. There are JSON files (the actual notebooks) and static HTML versions of the notebooks.
+
+- `Spreadsheets`: The final results files combining proteomics information, quantitative information, normalization and statistical testing result columns, and some UniProt protein annotation information.
+
 ---
 
 ## Overview
