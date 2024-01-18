@@ -10,7 +10,7 @@
 
 ## Overview
 
-This README file describes the re-analysis of a large mouse lens development study using quantitative bottom-up proteomics methods (fractionated 10-plex TMT labeling). The description is in a presentation style with slide images followed by detailed descriptions.
+This README file describes the re-analysis of a large mouse lens development study using quantitative bottom-up proteomics methods (fractionated 10-plex TMT labeling). The description is in a presentation style with slide images followed by detailed descriptions. The `Kahn-2018_reanalysis.pptx` file is the source of the slide images.
 
 ---
 
