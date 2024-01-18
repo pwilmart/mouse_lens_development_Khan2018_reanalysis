@@ -10,9 +10,9 @@ The top directory has this presentation, which is an overview of the re-analysis
 
 - `PAW_files`: The starting results files produced by the PAW pipeline. The folder has a README file with more details.
 
-- `Notebooks`: Jupyter notebook files that perform quality control checks and perform various statistical testing. There are JSON files (the actual notebooks) and static HTML versions of the notebooks.
+- `Notebooks`: Jupyter notebook files that perform quality control checks and perform various statistical testing. There are JSON files (the actual notebooks) and static HTML versions of the notebooks. The folder has a README file with more details.
 
-- `Spreadsheets`: The final results files combining proteomics information, quantitative information, normalization and statistical testing result columns, and some UniProt protein annotation information.
+- `Spreadsheets`: The final results files combining proteomics information, quantitative information, normalization and statistical testing result columns, and some UniProt protein annotation information. The folder has a README file with more details.
 
 ---
 
