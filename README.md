@@ -359,6 +359,17 @@ The well known lens proteins are a logical sanity check to start with. Seeing wh
 
 We can plot the sum of the intensities for the 20 lens proteins versus age (orange line plot) and see what the trend looks like. There is a clear linear trend with a little kink at P0. The time delta between E18 and P0 is less than 3 days and probably explains the dip. We are mostly playing around with the data at this stage and we can scale P0 intensity values for the 20 proteins to give a more linear trend (the blue line plot).
 
+Another interesting thing to compute is what fraction of the total intensity comes from crystallin proteins.
+
+Age|Set 1|Set 2|Set 3|Average
+---|---|---|---|---
+E15|21.4 %|19.5 %|20.6 %|20.5 %
+E18|31.6 %|26.1 %|38.8 %|32.2 %
+P0|35.9 %|38.2 %|41.2 %|38.4 %
+P3|43.3 %|54.4 %|51.0 %|49.6 %
+P6|48.9 %|56.7 %|53.8 %|53.1 %
+P9|54.9 %|57.6 %|56.8 %|56.4 %
+
 ---
 
 *Slide 32*
