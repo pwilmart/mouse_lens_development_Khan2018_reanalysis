@@ -1,0 +1,106 @@
+
+=================================================================
+ pandas_TMT_IRS_norm.py, v1.0.1, written by Phil Wilmarth 2017-8 
+=================================================================
+select a protein results file with TMT intensities and sample key:
+processing: labeled_grouped_protein_summary_TMT_9.txt
+proteins in results file: 5854
+total number of non-contaminant proteins: 5753
+contamaminant and decoy count: 101
+..382 proteins were not quantifiable in Set1
+..607 proteins were not quantifiable in Set2
+..1218 proteins were not quantifiable in Set3
+..proteins with no intensities experiment-wide: 50
+
+Set1 SL Norm Factors:
+  TotInt_126C_Set1: 0.610821
+  TotInt_127N_Set1: 0.632375
+  TotInt_127C_Set1: 0.941907
+  TotInt_128N_Set1: 0.932433
+  TotInt_128C_Set1: 1.098385
+  TotInt_129N_Set1: 1.046646
+  TotInt_129C_Set1: 0.942859
+  TotInt_130N_Set1: 24.280417
+  TotInt_130C_Set1: 28.113262
+  TotInt_131N_Set1: 9911.597010
+  TotInt_131C_Set1: 0.831200
+Set2 SL Norm Factors:
+  TotInt_126C_Set2: 0.848254
+  TotInt_127N_Set2: 1.017416
+  TotInt_127C_Set2: 0.695353
+  TotInt_128N_Set2: 1.048022
+  TotInt_128C_Set2: 0.829300
+  TotInt_129N_Set2: 0.943773
+  TotInt_129C_Set2: 0.877117
+  TotInt_130N_Set2: 20.196256
+  TotInt_130C_Set2: 24.222071
+  TotInt_131N_Set2: 687.884012
+  TotInt_131C_Set2: 0.879832
+Set3 SL Norm Factors:
+  TotInt_126C_Set3: 1.128679
+  TotInt_127N_Set3: 1.482281
+  TotInt_127C_Set3: 1.796503
+  TotInt_128N_Set3: 1.935425
+  TotInt_128C_Set3: 1.397401
+  TotInt_129N_Set3: 1.632723
+  TotInt_129C_Set3: 1.469683
+  TotInt_130N_Set3: 35.813014
+  TotInt_130C_Set3: 41.826870
+  TotInt_131N_Set3: 14524.072762
+  TotInt_131C_Set3: 1.514373
+
+number of non-contaminant/decoy proteins: 5753
+number of proteins with full intensity sets: 4250
+
+=================================================================
+ pandas_TMT_IRS_norm.py, v1.0.1, written by Phil Wilmarth 2017-8 
+=================================================================
+select a protein results file with TMT intensities and sample key:
+processing: labeled_grouped_protein_summary_TMT_9.txt
+proteins in results file: 5854
+total number of non-contaminant proteins: 5752
+contamaminant and decoy count: 102
+..382 proteins were not quantifiable in Set1
+..607 proteins were not quantifiable in Set2
+..1218 proteins were not quantifiable in Set3
+..proteins with no intensities experiment-wide: 50
+
+Set1 SL Norm Factors:
+  TotInt_126C_Set1: 0.615128
+  TotInt_127N_Set1: 0.638893
+  TotInt_127C_Set1: 0.937106
+  TotInt_128N_Set1: 0.928429
+  TotInt_128C_Set1: 1.090556
+  TotInt_129N_Set1: 1.038731
+  TotInt_129C_Set1: 0.935159
+  TotInt_130N_Set1: 24.082202
+  TotInt_130C_Set1: 27.867946
+  TotInt_131N_Set1: 9825.576806
+  TotInt_131C_Set1: 0.831628
+Set2 SL Norm Factors:
+  TotInt_126C_Set2: 0.849289
+  TotInt_127N_Set2: 1.065260
+  TotInt_127C_Set2: 0.691146
+  TotInt_128N_Set2: 1.043748
+  TotInt_128C_Set2: 0.822911
+  TotInt_129N_Set2: 0.936411
+  TotInt_129C_Set2: 0.869657
+  TotInt_130N_Set2: 20.022973
+  TotInt_130C_Set2: 24.010636
+  TotInt_131N_Set2: 681.934485
+  TotInt_131C_Set2: 0.881801
+Set3 SL Norm Factors:
+  TotInt_126C_Set3: 1.126344
+  TotInt_127N_Set3: 1.481671
+  TotInt_127C_Set3: 1.784922
+  TotInt_128N_Set3: 1.926605
+  TotInt_128C_Set3: 1.386325
+  TotInt_129N_Set3: 1.619151
+  TotInt_129C_Set3: 1.457249
+  TotInt_130N_Set3: 35.501768
+  TotInt_130C_Set3: 41.461210
+  TotInt_131N_Set3: 14398.887315
+  TotInt_131C_Set3: 1.507168
+
+number of non-contaminant/decoy proteins: 5752
+number of proteins with full intensity sets: 4249
