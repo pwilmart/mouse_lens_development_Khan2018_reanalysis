@@ -2,7 +2,7 @@
 
 Large spreadsheets are the way the results are summarized. These sheets include common proteomics data (protein accessions, protein descriptions, sequence coverage, peptide counts, etc.), quantitative data (reporter ion intensities summarized to the protein level), normalized data values, statistical testing results (p-values, FDRs, fold changed, etc.), and some useful annotation information (https://pwilmart.github.io/blog/2019/10/14/orthologs-annotations).
 
-It helps to have multiple large monitors when working with large data tables (or at least one large monitor). They are view features that can help like split views, hiding rows and columns that are not of current interest. Hiding rows/columns is better than deleting data from a data integrity standpoint. You might need to read up on some spreadsheet features and do some practicing before you jump into full on data exploration. See https://pwilmart.github.io/blog/2020/07/24/How-to-Excel for some background.  
+It helps to have multiple large monitors when working with large data tables (or at least one large monitor). There are view features that can help like split views, hiding rows and columns that are not of current interest, etc.. Hiding rows/columns is better than deleting data from a data integrity standpoint. You might need to read up on some spreadsheet features and do some practicing before you jump into full on data exploration. See https://pwilmart.github.io/blog/2020/07/24/How-to-Excel for some background.  
 
 ## Spreadsheets and descriptions:
 
@@ -15,8 +15,8 @@ It helps to have multiple large monitors when working with large data tables (or
 - Khan-2018_TMM_extras.xlsx
   - Sheet that uses average intensities for each age to explore proteome characteristics (cumulative abundance) and explore 20 well known lens proteins. The data has been TMM-normalized.
 - Khan-2018_labeled_grouped_protein_summary_TMT_9.xlsx
-  - Spreadsheet of the IRS script starting data where fractions of the total intensity from  crystallins are computed for each of the 18 samples.
+  - Spreadsheet version of the IRS script starting data where fractions of the total intensity from crystallins are computed for each of the 18 samples.
 - Khan-2018_results_3-age-groups_edgeR-exact_TMM.xlsx
-  - Age groups that were separated on the cumulative distribution plot are compared (E15 versus E18/P0 and E18/P0 versus P3/P6) using TMM-normalized data and edgeR exact test. This sheet also has slope analysis of scaled average intensities (divided by median intensity).
+  - Age groups that were separated on the cumulative distribution plot are compared (E15 versus E18/P0 and E18/P0 versus P3/P6) using TMM-normalized data and edgeR exact test. This sheet also has slope analysis of scaled average intensities (intensity at each age divided by median intensity of the 6 ages).
 - annotations.xlsx
   - A subset of UniProt protein annotation columns that are added to the right of most of the above sheets. Information includes gene symbols, links to UniProt and MGI, UniProt Keywords, GO terms, and Reactome pathway details.
