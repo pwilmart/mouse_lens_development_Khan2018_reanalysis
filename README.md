@@ -6,7 +6,9 @@
 
 ### Re-analysis by Dr. Phillip Wilmarth<br>Proteomics Shared Resource<br>Oregon Health & Science University<br>Late 2023 and early 2024
 
-The top directory has this presentation, which is an overview of the re-analysis. There are three folders:
+The top directory has this presentation, which is an overview of the re-analysis. There are four folders:
+
+- `images`: The 40 PNG images for the slides below.
 
 - `PAW_files`: The starting results files produced by the PAW pipeline. The folder has a README file with more details.
 
