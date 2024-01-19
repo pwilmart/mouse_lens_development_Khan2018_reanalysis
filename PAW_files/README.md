@@ -11,7 +11,7 @@ These are the results files from the [PAW pipeline](https://github.com/pwilmart/
 - PAW_results.log
   - Console log file from basic protein inference
 - PAW_table_descriptions_9.txt
-  - Description of the various PAW tab-delimited text files and column descriptions
+  - Description of the various PAW tab-delimited text files with column descriptions
 - Set1_peptide_results_9.txt
   - Detailed PSM-level results file for Set 1 plex
 - Set2_peptide_results_9.txt
@@ -29,7 +29,7 @@ These are the results files from the [PAW pipeline](https://github.com/pwilmart/
 - grouped_protein_summary_TMT_9.txt
   - Protein summary table after extended parsimony grouping with reporter ion channels
 - labeled_grouped_protein_summary_TMT_9.txt
-  - Protein summary table after extended parsimony grouping with reporter ion channels, identification of any additional contaminants, and channel to sample mapping
+  - Protein summary table after extended parsimony grouping with reporter ion channels, identification of any additional contaminants, and channel-to-sample mapping
 - labeled_grouped_protein_summary_TMT_9_IRS_normalized.txt
   - Output table from the IRS script
 - peptide_summary_9.txt
