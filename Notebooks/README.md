@@ -15,7 +15,7 @@ If you download the file to your computer (either as a Zip archive or by cloning
 - `Khan-2018_edgeR-ANOVA_noTMM.ipynb` and `Khan-2018_edgeR-ANOVA_noTMM.html`
   - Notebooks that perform one-way ANOVA on data without using TMM normalization (grand total normalized only). The general linear modeling features of edgeR are used. Benjamini-Hochberg multiple testing corrections are applied.
 - `Khan-2018_edgeR-E15-E18P0-P3P6-exact_TMM.ipynb` and `Khan-2018_edgeR-E15-E18P0-P3P6-exact_TMM.html`
-  - Notebooks that compare E15 to E18/P0 ages, or compare E18/P0 to P3/P6/P9 ages. The data has been TMM normalized. The pair-wise comparisons use the edgeR exact test, experiment-wide trended variance, and Benjamini-Hochberg multiple testing.
+  - Notebooks that compare E15 to E18/P0 ages, or compare E18/P0 to P3/P6 ages. The data has been TMM normalized. The pair-wise comparisons use the edgeR exact test, experiment-wide trended variance, and Benjamini-Hochberg multiple testing.
 - `Khan-2018_edgeR-successive-ages-exact_TMM.ipynb` and `Khan-2018_edgeR-successive-ages-exact_TMM.html`
   - Notebooks that compare each pair of successive ages (E15 to E18, E18 to P0, P0 to P3, P3 to P6, and P6 to P9). The data has been TMM normalized. The pair-wise comparisons use the edgeR exact test, experiment-wide trended variance, and Benjamini-Hochberg multiple testing.
 - `Khan-2018_edgeR-successive-ages-exact_noTMM.ipynb` and `Khan-2018_edgeR-successive-ages-exact_noTMM.html`
@@ -27,7 +27,7 @@ If you download the file to your computer (either as a Zip archive or by cloning
 
 **Output files written by the notebooks:**
 - `Khan-2018_results_3-age-groups_edgeR-exact_TMM.txt`
-  - E15 versus E18/P0 and E18/P0 versus P3/P6/P9 comparisons with TMM
+  - E15 versus E18/P0 and E18/P0 versus P3/P6 comparisons with TMM
 - `Khan-2018_results_edgeR-ANOVA_TMM.txt`
   - ANOVA results with TMM
 - `Khan-2018_results_edgeR-ANOVA_noTMM.txt`
